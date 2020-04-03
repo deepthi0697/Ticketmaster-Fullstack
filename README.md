@@ -27,7 +27,7 @@ npm run test
 👤 **KN Deepthi**
 
 * Github: [@deepthi0697](https://github.com/deepthi0697)
-* LinkedIn: [@Deepthi Shastry](https://linkedin.com/in/Deepthi Shastry)
+* LinkedIn: [@Deepthi Shastry](https://linkedin.com/in/deepthiShastry2306)
 
 ## Show your support
 
