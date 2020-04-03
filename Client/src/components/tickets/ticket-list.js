@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from '../../config/axios'
+import Chart from "react-google-charts"
 
 class TicketsList extends React.Component {
     constructor() {
@@ -52,6 +53,11 @@ class TicketsList extends React.Component {
                         return employee.name
                     })})
         })
+
+        const priorityTickets = this.state.tickets
+        const highPriority = priorityTickets.filter(ticket => ticket.priority === 'High').length
+        const lowPriority = priorityTickets.filter(ticket => ticket.priority === 'Low').length
+        const mediumPriority = priorityTickets.filter(ticket => ticket.priority === 'Medium').length
         return (
             <div className = 'row'>
                 {console.log(tickets)}
@@ -95,10 +101,33 @@ class TicketsList extends React.Component {
                                     }
                                 </tbody>
                             </table> <br/>
-                            <Link to='/tickets/new'>Add ticket</Link>
+                            <Link to='/tickets/new'>Add ticket</Link>    
+                            <hr/>
+                                    
+                            <Chart
+                                width={'500px'}
+                                height={'300px'}
+                                chartType="Bar"
+                                loader={<div>Loading Chart</div>}
+                                data={[
+                                    ['Priority' ,'Tickets'],
+                                    [lowPriority ,'Low'],
+                                    [ mediumPriority, 'Medium'],
+                                    [ highPriority ,'High']
+                                ]}
+                                options={{
+                                    // Material design options
+                                    chart: {
+                                    title: 'Tickets Priority'
+                                    },
+                                }}
+                                // For tests
+                                rootProps={{ 'data-testid': '2' }}
+                            />
                         </div>
                     )
                 }
+
                 </div>
             </div>
         )
