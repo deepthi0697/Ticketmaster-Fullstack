@@ -1,0 +1,11 @@
+//url - uniform resource locator
+www.jsonplaceholder.com/users
+
+//uri- uniform resource identifier
+/users (anything after .com)
+
+
+//hostname - domain name
+www.jsonplaceholder.com
+
+64.125.2.3:3015/users
